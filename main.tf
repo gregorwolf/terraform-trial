@@ -3,11 +3,11 @@ resource "btp_subaccount" "trial" {
   subdomain = var.subdomain
   region    = var.region
 }
-## Comment as soon as the import was done
-import {
-  to = btp_subaccount.trial
-  id = var.subaccount_id
-}
+## Uncomment for the import
+# import {
+#   to = btp_subaccount.trial
+#   id = var.subaccount_id
+# }
 
 resource "btp_subaccount_entitlement" "alert_notification_service" {
   subaccount_id = btp_subaccount.trial.id
@@ -49,9 +49,19 @@ resource "btp_subaccount_trust_configuration" "customized" {
   identity_provider = element(split("/", btp_subaccount_subscription.identity_instance.subscription_url), 2)
 }
 
-
 locals {
   project_subaccount_cf_org = var.subdomain
+}
+
+module "hana_cloud_setup" {
+  source = "github.com/gregorwolf/btp-terraform-samples.git?ref=1a98f12cc9e1dc9cf379d279c55c7e34a45133f9//released/usecases/genai-setup/modules/hana-cloud"
+
+  subaccount_id        = btp_subaccount.trial.id
+  hana_system_password = var.hana_system_password
+  hana_appname         = var.hana_appname
+  hana_service_name    = var.hana_service_name
+  hana_memory          = var.hana_memory
+  admins               = var.admins
 }
 
 # module "cloudfoundry_environment" {
