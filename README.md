@@ -10,6 +10,7 @@ Right now this terraform setup creates:
 - An instance of
   - SAP Build Work Zone, standard edition
   - SAP Cloud Identity Services
+- Add trust to the SAP Cloud Identity Services instance
 
 ## Prerequisites
 
