@@ -38,3 +38,8 @@ resource "btp_subaccount_subscription" "identity_instance" {
     cloud_service = "TEST"
   })
 }
+
+resource "btp_subaccount_trust_configuration" "customized" {
+  subaccount_id     = btp_subaccount.wz_qa.id
+  identity_provider = element(split("/", btp_subaccount_subscription.identity_instance.subscription_url), 2)
+}
