@@ -6,9 +6,14 @@ Right now this terraform setup creates:
 - Entitlements for
   - Alert Notification
   - SAP Build Work Zone, standard edition
-- An instance of SAP Build Work Zone, standard edition
+  - SAP Cloud Identity Services
+- An instance of
+  - SAP Build Work Zone, standard edition
+  - SAP Cloud Identity Services
 
 ## Prerequisites
+
+BTP Trial account in the region `us10`.
 
 Create .env file in the root directory with the following content:
 

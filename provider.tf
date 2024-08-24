@@ -1,4 +1,4 @@
-variable "globalaccount" { type= string } 
+variable "subdomain" { type= string } 
 
 terraform {
   required_providers {
@@ -10,5 +10,5 @@ terraform {
 }
 
 provider "btp" {
-  globalaccount = "${var.globalaccount}"
+  globalaccount = "${var.subdomain}-ga"
 }
