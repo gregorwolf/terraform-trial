@@ -25,7 +25,7 @@ Create .env file in the root directory with the following content:
 
 ```bash
 TF_VAR_subaccount_id='<Your-trial-Subaccount-ID>'
-TF_VAR_globalaccount='<Your-Global-Account-Name>'
+TF_VAR_subdomain='<Your-Subdomain>'
 BTP_ENABLE_SSO='true'
 ```
 
