@@ -1,3 +1,5 @@
+variable "globalaccount" { type= string } 
+
 terraform {
   required_providers {
     btp = {
@@ -8,5 +10,5 @@ terraform {
 }
 
 provider "btp" {
-  globalaccount = "b47e9479trial-ga"
+  globalaccount = "${var.globalaccount}"
 }
