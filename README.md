@@ -7,9 +7,13 @@ Right now this terraform setup creates:
   - Alert Notification
   - SAP Build Work Zone, standard edition
   - SAP Cloud Identity Services
+  - HANA Cloud tools
+  - HANA Cloud
 - Create an instance of
   - SAP Build Work Zone, standard edition
   - SAP Cloud Identity Services
+  - HANA Cloud tools
+  - HANA Cloud
 - Add trust to the SAP Cloud Identity Services instance
 
 ## References
