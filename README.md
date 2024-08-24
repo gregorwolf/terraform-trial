@@ -2,12 +2,12 @@
 
 Right now this terraform setup creates:
 
-- A new subaccount named 'Workzone QA'
-- Entitlements for
+- Import the subaccount named 'trial'
+- Add entitlements for
   - Alert Notification
   - SAP Build Work Zone, standard edition
   - SAP Cloud Identity Services
-- An instance of
+- Create an instance of
   - SAP Build Work Zone, standard edition
   - SAP Cloud Identity Services
 - Add trust to the SAP Cloud Identity Services instance
@@ -24,6 +24,7 @@ BTP Trial account in the region `us10`.
 Create .env file in the root directory with the following content:
 
 ```bash
+TF_VAR_subaccount_id='<Your-trial-Subaccount-ID>'
 TF_VAR_globalaccount='<Your-Global-Account-Name>'
 BTP_ENABLE_SSO='true'
 ```
