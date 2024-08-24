@@ -35,6 +35,15 @@ resource "btp_subaccount_subscription" "build_workzone_subscribe" {
   depends_on    = [btp_subaccount_entitlement.SAPLaunchpad]
 }
 
+# Assign users to Role Collection: Launchpad_Admin
+resource "btp_subaccount_role_collection_assignment" "launchpad_admin" {
+  for_each             = toset("${var.admins}")
+  subaccount_id        = btp_subaccount.trial.id
+  role_collection_name = "Launchpad_Admin"
+  user_name            = each.value
+  depends_on           = [btp_subaccount_subscription.build_workzone_subscribe]
+}
+
 resource "btp_subaccount_subscription" "identity_instance" {
   subaccount_id = btp_subaccount.trial.id
   app_name      = "sap-identity-services-onboarding"
