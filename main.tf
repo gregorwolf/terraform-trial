@@ -44,6 +44,14 @@ resource "btp_subaccount_role_collection_assignment" "launchpad_admin" {
   depends_on           = [btp_subaccount_subscription.build_workzone_subscribe]
 }
 
+# Assign users to Role Collection: Business_Application_Studio_Developer
+resource "btp_subaccount_role_collection_assignment" "business_application_studio_developer" {
+  for_each             = toset("${var.admins}")
+  subaccount_id        = btp_subaccount.trial.id
+  role_collection_name = "Business_Application_Studio_Developer"
+  user_name            = each.value
+}
+
 resource "btp_subaccount_subscription" "identity_instance" {
   subaccount_id = btp_subaccount.trial.id
   app_name      = "sap-identity-services-onboarding"
