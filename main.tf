@@ -3,7 +3,7 @@ resource "btp_subaccount" "trial" {
   subdomain = var.subdomain
   region    = var.region
 }
-
+## Comment as soon as the import was done
 import {
   to = btp_subaccount.trial
   id = var.subaccount_id
