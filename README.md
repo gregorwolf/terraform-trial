@@ -12,6 +12,11 @@ Right now this terraform setup creates:
   - SAP Cloud Identity Services
 - Add trust to the SAP Cloud Identity Services instance
 
+## References
+
+- [Terraform Provider for SAP BTP](https://registry.terraform.io/providers/SAP/btp/latest/docs)
+- [btp-terraform-samples](https://github.com/SAP-samples/btp-terraform-samples/)
+
 ## Prerequisites
 
 BTP Trial account in the region `us10`.
