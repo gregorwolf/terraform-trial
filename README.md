@@ -29,7 +29,9 @@ In the region `us10`.
 
 ### Terraform
 
-Register at [Terraform Cloud](https://app.terraform.io/signup/account) and create a new organization.
+Register at [Terraform Cloud](https://app.terraform.io/signup/account) and create a new organization. Navigate to this organization and open the settings. For the Default Execution Mode choose `Local`:
+
+![Screenshot of the section Default Execution Mode](./assets/default-execution-mode.png)
 
 ### GitHub Codespace
 
