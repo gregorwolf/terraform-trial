@@ -23,7 +23,23 @@ Right now this terraform setup creates:
 
 ## Prerequisites
 
-BTP Trial account in the region `us10`.
+### BTP Trial account
+
+In the region `us10`.
+
+### Terraform
+
+Register at [Terraform Cloud](https://app.terraform.io/signup/account) and create a new organization.
+
+### GitHub Codespace
+
+Create a new GitHub Codespace by clicking on the green button in the repository, choose the tab Codespaces and click on create. This will create a new Codespace with the required tools.
+
+### Setup inside the Codespace
+
+Create a new branch with the name of your terraform organization.
+
+Change the file `terraform.tf` and replace the `organization` with your organization name.
 
 Create .env file in the root directory with the following content:
 
@@ -41,4 +57,30 @@ then run
 export $(xargs <.env)
 ```
 
-to load the environment variables. Then follow the [ Get Started with the Terraform Provider for SAP BTP tutorial](https://developers.sap.com/tutorials/btp-terraform-get-started.html)
+to load the environment variables. Now you can run the terraform commands.
+
+## Usage
+
+Authenticate to: Terraform Cloud:
+
+```bash
+terraform login
+```
+
+Install the required providers:
+
+```bash
+terraform init
+```
+
+See what will be created:
+
+```bash
+terraform plan
+```
+
+Create the resources:
+
+```bash
+terraform apply
+```
