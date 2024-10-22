@@ -61,6 +61,10 @@ export $(xargs <.env)
 
 to load the environment variables. Now you can run the terraform commands.
 
+## First time usage
+
+When you use this repository for the first time on a freshly created BTP Trial account then you need to uncomment the import lines in the `main.tf` file.
+
 ## Usage
 
 Authenticate to: Terraform Cloud:
