@@ -35,7 +35,7 @@ Register at [Terraform Cloud](https://app.terraform.io/signup/account) and creat
 
 ### GitHub Codespace
 
-Create a new GitHub Codespace by clicking on the green button in the repository, choose the tab Codespaces and click on create. This will create a new Codespace with the required tools.
+Create a new GitHub Codespace by clicking on the green button in the repository, choose the tab Codespaces and click on create. This will create a new Codespace with the required tools. If you want to use the Codespace in your local VS Code you can configure this as a preference using https://github.com/settings/codespaces.
 
 ### Setup inside the Codespace
 
