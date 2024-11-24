@@ -1,36 +1,25 @@
-variable "subdomain" { type = string }
+
 variable "subaccount_id" {
   type        = string
-  description = "The subaccount ID."
-}
-
-variable "region" {
-  type    = string
-  default = "us10-001"
-}
-
-variable "cf_space_name" {
-  type        = string
-  description = "The name of the Cloud Foundry space."
-  default     = "dev"
+  description = "The subaccount id."
 }
 
 variable "hana_appname" {
   type        = string
   description = "HANA Cloud appName"
-  default     = "hana-cloud-tools-trial"
+  default     = "hana-cloud-tools"
 }
 
 variable "hana_service_name" {
   type        = string
   description = "HANA Cloud service_name"
-  default     = "hana-cloud-trial"
+  default     = "hana-cloud"
 }
 
 variable "hana_memory" {
   type        = number
   description = "HANA Cloud Memory"
-  default     = 16
+  default     = 32
 }
 
 variable "hana_system_password" {
@@ -61,6 +50,7 @@ variable "hana_system_password" {
     condition     = can(regex("[0-9]", var.hana_system_password))
     error_message = "The hana_system_password must contain at least one numeric character."
   }
+
 }
 
 variable "admins" {
@@ -72,4 +62,5 @@ variable "admins" {
     condition     = length([for email in var.admins : can(regex("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", email))]) == length(var.admins)
     error_message = "Please enter a valid email address for the admins."
   }
+
 }

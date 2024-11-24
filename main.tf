@@ -71,7 +71,7 @@ locals {
 }
 
 module "hana_cloud_setup" {
-  source = "github.com/gregorwolf/btp-terraform-samples.git?ref=1a98f12cc9e1dc9cf379d279c55c7e34a45133f9//released/usecases/genai-setup/modules/hana-cloud"
+  source = "./modules/hana-cloud"
 
   subaccount_id        = btp_subaccount.trial.id
   hana_system_password = var.hana_system_password
