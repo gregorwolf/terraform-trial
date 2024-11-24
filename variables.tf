@@ -6,7 +6,12 @@ variable "subaccount_id" {
 
 variable "region" {
   type    = string
-  default = "us10-001"
+  default = "us10"
+}
+
+variable "extLandscape" {
+  type    = string
+  default = "-001"
 }
 
 variable "cf_space_name" {

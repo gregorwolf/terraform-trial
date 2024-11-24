@@ -16,5 +16,5 @@ provider "btp" {
 }
 
 provider "cloudfoundry" {
-  api_url = "https://api.cf.${var.region}.hana.ondemand.com"
+  api_url = "https://api.cf.${var.region}${var.extLandscape}.hana.ondemand.com"
 }

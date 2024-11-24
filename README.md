@@ -25,7 +25,7 @@ Right now this terraform setup creates:
 
 ### BTP Trial account
 
-In the region `us10`.
+Must be created in region `us10`.
 
 ### Terraform
 
