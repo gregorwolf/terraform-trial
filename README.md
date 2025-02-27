@@ -46,7 +46,6 @@ Change the file `terraform.tf` and replace the `organization` with your organiza
 Create .env file in the root directory with the following content:
 
 ```bash
-TF_VAR_subaccount_id='<Your-trial-Subaccount-ID>'
 TF_VAR_subdomain='<Your-Subdomain>'
 TF_VAR_admins='["<Your-E-Mail-Address>"]'
 TF_VAR_hana_system_password='<Your-HANA-System-Password>'
