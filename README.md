@@ -63,7 +63,7 @@ to load the environment variables. Now you can run the terraform commands.
 ## First time usage
 
 > [!IMPORTANT]
-> When you use this repository for the first time on a freshly created BTP Trial account then you need to uncomment the import lines in the `main.tf` file.
+> When you use this repository for the first time on a freshly created BTP Trial account then you need to uncomment the import lines in the `main.tf` file and insert your Subaccount ID.
 
 ## Usage
 

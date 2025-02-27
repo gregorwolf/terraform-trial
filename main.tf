@@ -5,8 +5,8 @@ resource "btp_subaccount" "trial" {
 }
 ## Uncomment for the import
 # import {
+#   id = "<replace with the subaccount id>"
 #   to = btp_subaccount.trial
-#   id = var.subaccount_id
 # }
 
 resource "btp_subaccount_entitlement" "alert_notification_service" {
