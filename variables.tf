@@ -1,8 +1,4 @@
 variable "subdomain" { type = string }
-variable "subaccount_id" {
-  type        = string
-  description = "The subaccount ID."
-}
 
 variable "region" {
   type    = string
