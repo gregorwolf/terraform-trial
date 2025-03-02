@@ -49,6 +49,8 @@ Create .env file in the root directory with the following content:
 TF_VAR_subdomain='<Your-Subdomain>'
 TF_VAR_admins='["<Your-E-Mail-Address>"]'
 TF_VAR_hana_system_password='<Your-HANA-System-Password>'
+TF_VAR_cf_organization_guid=''
+TF_VAR_cf_space_guid=''
 BTP_ENABLE_SSO='true'
 ```
 

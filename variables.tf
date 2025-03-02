@@ -16,6 +16,16 @@ variable "cf_space_name" {
   default     = "dev"
 }
 
+variable "cf_organization_guid" {
+  type        = string
+  description = "The GUID of the Cloud Foundry organization."
+}
+
+variable "cf_space_guid" {
+  type        = string
+  description = "The GUID of the Cloud Foundry space."
+}
+
 variable "hana_appname" {
   type        = string
   description = "HANA Cloud appName"
@@ -33,37 +43,6 @@ variable "hana_memory" {
   description = "HANA Cloud Memory"
   default     = 16
 }
-
-variable "hana_system_password" {
-  type        = string
-  description = "The password of the database 'superuser' DBADMIN."
-  sensitive   = true
-
-  # add validation to check if the password is at least 8 characters long
-  validation {
-    condition     = length(var.hana_system_password) > 7
-    error_message = "The hana_system_password must be at least 8 characters long."
-  }
-
-  # add validation to check if the password contains at least one upper case
-  validation {
-    condition     = can(regex("[A-Z]", var.hana_system_password))
-    error_message = "The hana_system_password must contain at least one upper case."
-  }
-
-  # add validation to check if the password contains at least two lower case characters
-  validation {
-    condition     = can(regex("[a-z]{2}", var.hana_system_password))
-    error_message = "The hana_system_password must contain at least two lower case characters."
-  }
-
-  # add validation to check if the password contains at least one numeric character
-  validation {
-    condition     = can(regex("[0-9]", var.hana_system_password))
-    error_message = "The hana_system_password must contain at least one numeric character."
-  }
-}
-
 variable "admins" {
   type        = list(string)
   description = "Defines the colleagues who are added to each subaccount as emergency administrators."

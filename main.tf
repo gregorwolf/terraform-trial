@@ -87,7 +87,7 @@ module "hana_cloud_setup" {
   subaccount_id              = btp_subaccount.trial.id
   service_name               = "hana-cloud-trial"
   plan_name                  = "hana"
-  hana_cloud_tools_app_name  = "hana-cloud-trial"
+  hana_cloud_tools_app_name  = "hana-cloud-tools-trial"
   hana_cloud_tools_plan_name = "tools"
   admins                     = var.admins
   viewers                    = var.admins
@@ -99,8 +99,8 @@ module "hana_cloud_setup" {
   database_mappings = [
     # provide mappings for cf or kyma env
     {
-      organization_guid = "" # your cf org id
-      space_guid        = "" # your space guid
+      organization_guid = var.cf_organization_guid # your cf org id
+      space_guid        = var.cf_space_guid        # your space guid
     }
   ]
 }
