@@ -70,15 +70,39 @@ locals {
   project_subaccount_cf_org = var.subdomain
 }
 
-module "hana_cloud_setup" {
-  source = "./modules/hana-cloud"
+# module "hana_cloud_setup" {
+#   source = "./modules/hana-cloud"
 
-  subaccount_id        = btp_subaccount.trial.id
-  hana_system_password = var.hana_system_password
-  hana_appname         = var.hana_appname
-  hana_service_name    = var.hana_service_name
-  hana_memory          = var.hana_memory
-  admins               = var.admins
+#   subaccount_id        = btp_subaccount.trial.id
+#   hana_system_password = var.hana_system_password
+#   hana_appname         = var.hana_appname
+#   hana_service_name    = var.hana_service_name
+#   hana_memory          = var.hana_memory
+#   admins               = var.admins
+# }
+
+module "hana_cloud_setup" {
+  source = "github.com/codeyogi911/terraform-sap-hana-cloud"
+
+  subaccount_id              = btp_subaccount.trial.id
+  service_name               = "hana-cloud-trial"
+  plan_name                  = "hana"
+  hana_cloud_tools_app_name  = "hana-cloud-trial"
+  hana_cloud_tools_plan_name = "tools"
+  admins                     = var.admins
+  viewers                    = var.admins
+  security_admins            = var.admins
+  instance_name              = var.hana_service_name
+  memory                     = 16
+  vcpu                       = 1
+  whitelist_ips              = ["0.0.0.0/0"]
+  database_mappings = [
+    # provide mappings for cf or kyma env
+    {
+      organization_guid = "" # your cf org id
+      space_guid        = "" # your space guid
+    }
+  ]
 }
 
 # module "cloudfoundry_environment" {
