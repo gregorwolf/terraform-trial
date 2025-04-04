@@ -12,7 +12,7 @@ resource "btp_subaccount_entitlement" "consumer-01-SAPLaunchpad" {
 
 resource "btp_subaccount_subscription" "consumer-01-build_workzone_subscribe" {
   subaccount_id = btp_subaccount.consumer-01.id
-  app_name      = "SAPLaunchpad"
+  app_name      = "SAPLaunchpadSMS"
   plan_name     = "standard"
   depends_on    = [btp_subaccount_entitlement.consumer-01-SAPLaunchpad]
 }

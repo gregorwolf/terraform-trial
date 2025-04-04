@@ -3,9 +3,9 @@ resource "btp_subaccount" "trial" {
   subdomain = var.subdomain
   region    = var.region
 }
-## Uncomment for the import
+# # Uncomment for the import
 # import {
-#   id = "<replace with the subaccount id>"
+#   id = ""
 #   to = btp_subaccount.trial
 # }
 
@@ -30,7 +30,7 @@ resource "btp_subaccount_entitlement" "SAPLaunchpad" {
 
 resource "btp_subaccount_subscription" "build_workzone_subscribe" {
   subaccount_id = btp_subaccount.trial.id
-  app_name      = "SAPLaunchpad"
+  app_name      = "SAPLaunchpadSMS"
   plan_name     = "standard"
   depends_on    = [btp_subaccount_entitlement.SAPLaunchpad]
 }
