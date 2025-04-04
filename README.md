@@ -54,6 +54,12 @@ TF_VAR_cf_space_guid=''
 BTP_ENABLE_SSO='true'
 ```
 
+To fill TF_VAR_cf_organization_guid and TF_VAR_cf_space_guid navigate to the dev space of your BTP Trial account and copy the URL. It contains the GUIDs of the organization and space. The URL looks like this:
+
+```
+https://account.hanatrial.ondemand.com/trial/#/globalaccount/<GUID>/subaccount/<GUID>/org/<TF_VAR_cf_organization_guid>/space/<TF_VAR_cf_space_guid>/applications
+```
+
 then run
 
 ```bash
