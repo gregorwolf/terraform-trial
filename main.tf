@@ -15,6 +15,11 @@ resource "btp_subaccount_entitlement" "alert_notification_service" {
   plan_name     = "standard"
 }
 
+resource "btp_subaccount_entitlement" "auditlog_viewer_service" {
+  subaccount_id = btp_subaccount.trial.id
+  service_name  = "auditlog-viewer"
+  plan_name     = "free"
+}
 
 resource "btp_subaccount_entitlement" "identity_service" {
   subaccount_id = btp_subaccount.trial.id
@@ -59,6 +64,7 @@ resource "btp_subaccount_subscription" "identity_instance" {
   parameters = jsonencode({
     cloud_service = "TEST"
   })
+  depends_on = [btp_subaccount_entitlement.identity_service]
 }
 
 resource "btp_subaccount_trust_configuration" "customized" {
@@ -80,6 +86,41 @@ locals {
 #   hana_memory          = var.hana_memory
 #   admins               = var.admins
 # }
+
+resource "btp_subaccount_subscription" "auditlog_viewer" {
+  subaccount_id = btp_subaccount.trial.id
+  app_name      = "auditlog-viewer"
+  plan_name     = "free"
+  depends_on    = [btp_subaccount_entitlement.auditlog_viewer_service]
+}
+
+resource "btp_subaccount_role_collection" "auditlog_auditor_role_collection" {
+  subaccount_id = btp_subaccount.trial.id
+  name          = "Auditlog_Auditor"
+  description   = "Auditlog Auditor Role Collection"
+
+  roles = [
+    {
+      name                 = "Auditlog_Auditor"
+      role_template_app_id = "auditlog-viewer!t1187"
+      role_template_name   = "Auditlog_Auditor"
+    },
+    {
+      name                 = "Auditlog_Auditor"
+      role_template_app_id = "auditlog-management!b1187"
+      role_template_name   = "Auditlog_Auditor"
+    }
+  ]
+  depends_on = [btp_subaccount_subscription.auditlog_viewer]
+}
+
+resource "btp_subaccount_role_collection_assignment" "auditlog_auditor" {
+  for_each             = toset("${var.admins}")
+  subaccount_id        = btp_subaccount.trial.id
+  role_collection_name = "Auditlog_Auditor"
+  user_name            = each.value
+  depends_on           = [btp_subaccount_role_collection.auditlog_auditor_role_collection]
+}
 
 module "hana_cloud_setup" {
   source = "github.com/codeyogi911/terraform-sap-hana-cloud"
