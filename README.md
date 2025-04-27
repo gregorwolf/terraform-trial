@@ -15,6 +15,7 @@ Right now this terraform setup creates:
   - HANA Cloud tools
   - HANA Cloud
 - Add trust to the SAP Cloud Identity Services instance
+- Creates a subaccount consumer-01 that can be used for multitenant applications
 
 ## References
 
@@ -81,7 +82,7 @@ Authenticate to Terraform Cloud:
 terraform login
 ```
 
-Install the required providers:
+Install the required providers (add `-upgrade` to update the providers):
 
 ```bash
 terraform init
