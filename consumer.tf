@@ -14,7 +14,7 @@ resource "btp_subaccount_subscription" "consumer-01-build_workzone_subscribe" {
   subaccount_id = btp_subaccount.consumer-01.id
   app_name      = "SAPLaunchpadSMS"
   plan_name     = "standard"
-  depends_on    = [btp_subaccount_entitlement.consumer-01-SAPLaunchpad]
+  depends_on    = [btp_subaccount_entitlement.consumer-01-SAPLaunchpad, btp_subaccount_trust_configuration.consumer-01-customized]
 }
 # Assign users to Role Collection: Launchpad_Admin
 resource "btp_subaccount_role_collection_assignment" "consumer-01-launchpad_admin" {
