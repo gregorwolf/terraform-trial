@@ -15,7 +15,7 @@ Right now this terraform setup creates:
   - HANA Cloud tools
   - HANA Cloud
 - Add trust to the SAP Cloud Identity Services instance
-- Creates a subaccount consumer-01 that can be used for multitenant applications
+- Creates a subaccount sub01 that can be used for multitenant applications
 
 ## References
 
