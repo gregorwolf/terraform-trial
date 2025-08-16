@@ -44,16 +44,7 @@ Create a new branch with the name of your terraform organization.
 
 Change the file `terraform.tf` and replace the `organization` with your organization name.
 
-Create .env file in the root directory with the following content. You can use the `env.dist` file as a template. The values are:
-
-```bash
-TF_VAR_subdomain=''
-TF_VAR_admins='[""]'
-TF_VAR_hana_appname='hana-cloud-tools-trial'
-TF_VAR_cf_organization_guid=''
-TF_VAR_cf_space_guid=''
-BTP_ENABLE_SSO='true'
-```
+Create .env file in the root directory with the following content. You can use the `env.dist` file as a template.
 
 To fill TF_VAR_cf_organization_guid and TF_VAR_cf_space_guid navigate to the dev space of your BTP Trial account and copy the URL. It contains the GUIDs of the organization and space. The URL looks like this:
 

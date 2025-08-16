@@ -3,11 +3,11 @@ resource "btp_subaccount" "trial" {
   subdomain = var.subdomain
   region    = var.region
 }
-# # Uncomment for the import
-# import {
-#   id = ""
-#   to = btp_subaccount.trial
-# }
+# Uncomment for the import
+import {
+  id = "daa08ebd-f64e-4901-bb67-6f41a9c01cdb"
+  to = btp_subaccount.trial
+}
 
 resource "btp_subaccount_entitlement" "alert_notification_service" {
   subaccount_id = btp_subaccount.trial.id
@@ -76,17 +76,6 @@ locals {
   project_subaccount_cf_org = var.subdomain
 }
 
-# module "hana_cloud_setup" {
-#   source = "./modules/hana-cloud"
-
-#   subaccount_id        = btp_subaccount.trial.id
-#   hana_system_password = var.hana_system_password
-#   hana_appname         = var.hana_appname
-#   hana_service_name    = var.hana_service_name
-#   hana_memory          = var.hana_memory
-#   admins               = var.admins
-# }
-
 resource "btp_subaccount_subscription" "auditlog_viewer" {
   subaccount_id = btp_subaccount.trial.id
   app_name      = "auditlog-viewer"
@@ -120,30 +109,6 @@ resource "btp_subaccount_role_collection_assignment" "auditlog_auditor" {
   role_collection_name = "Auditlog_Auditor"
   user_name            = each.value
   depends_on           = [btp_subaccount_role_collection.auditlog_auditor_role_collection]
-}
-
-module "hana_cloud_setup" {
-  source = "github.com/codeyogi911/terraform-sap-hana-cloud"
-
-  subaccount_id              = btp_subaccount.trial.id
-  service_name               = "hana-cloud-trial"
-  plan_name                  = "hana"
-  hana_cloud_tools_app_name  = "hana-cloud-tools-trial"
-  hana_cloud_tools_plan_name = "tools"
-  admins                     = var.admins
-  viewers                    = var.admins
-  security_admins            = var.admins
-  instance_name              = var.hana_service_name
-  memory                     = 16
-  vcpu                       = 1
-  whitelist_ips              = ["0.0.0.0/0"]
-  database_mappings = [
-    # provide mappings for cf or kyma env
-    {
-      organization_guid = var.cf_organization_guid # your cf org id
-      space_guid        = var.cf_space_guid        # your space guid
-    }
-  ]
 }
 
 # module "cloudfoundry_environment" {

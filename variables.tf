@@ -10,6 +10,19 @@ variable "extLandscape" {
   default = "-001"
 }
 
+variable "cf_user" {
+  default     = ""
+  description = "Cloud Foundry user"
+  type        = string
+}
+
+variable "cf_password" {
+  default     = ""
+  description = "Cloud Foundry password"
+  type        = string
+  sensitive   = true
+}
+
 variable "cf_space_name" {
   type        = string
   description = "The name of the Cloud Foundry space."
