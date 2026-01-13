@@ -1,12 +1,12 @@
 resource "btp_subaccount_entitlement" "hana_cloud_tools" {
   subaccount_id = btp_subaccount.trial.id
-  service_name  = "hana-cloud-tools-trial"
+  service_name  = "hana-cloud-tools"
   plan_name     = "tools"
 }
 
 resource "btp_subaccount_subscription" "hana_cloud_tools" {
   subaccount_id = btp_subaccount.trial.id
-  app_name      = "hana-cloud-tools-trial"
+  app_name      = "hana-cloud-tools"
   plan_name     = "tools"
   depends_on    = [btp_subaccount_entitlement.hana_cloud_tools]
 }
@@ -29,6 +29,6 @@ resource "btp_subaccount_role_collection_assignment" "hana_cloud_security_admin_
 
 resource "btp_subaccount_entitlement" "hana_cloud" {
   subaccount_id = btp_subaccount.trial.id
-  service_name  = "hana-cloud-trial"
-  plan_name     = "hana"
+  service_name  = "hana-cloud"
+  plan_name     = "hana-free"
 }

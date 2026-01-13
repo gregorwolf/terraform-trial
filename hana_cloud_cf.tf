@@ -4,8 +4,8 @@ variable "hana_system_password" {
 }
 
 data "cloudfoundry_service_plan" "hana_cloud" {
-  name                  = "hana"
-  service_offering_name = "hana-cloud-trial"
+  name                  = "hana-free"
+  service_offering_name = "hana-cloud"
 }
 
 resource "cloudfoundry_service_instance" "hana_cloud" {
@@ -14,7 +14,10 @@ resource "cloudfoundry_service_instance" "hana_cloud" {
   tags         = ["hana", "hana-trial"]
   space        = var.cf_space_guid
   service_plan = data.cloudfoundry_service_plan.hana_cloud.id
-  parameters   = <<EOT
+  timeouts = {
+    create = "30m"
+  }
+  parameters = <<EOT
 {
     "data": {
         "memory": 16,
