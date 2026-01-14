@@ -11,6 +11,15 @@ resource "btp_subaccount_subscription" "hana_cloud_tools" {
   depends_on    = [btp_subaccount_entitlement.hana_cloud_tools]
 }
 
+# Assign users to Role Collection: Launchpad_Admin
+resource "btp_subaccount_role_collection_assignment" "hana_cloud_admin" {
+  for_each             = toset("${var.admins}")
+  subaccount_id        = btp_subaccount.trial.id
+  role_collection_name = "SAP HANA Cloud Administrator"
+  user_name            = each.value
+  depends_on           = [btp_subaccount_subscription.hana_cloud_tools]
+}
+
 resource "btp_subaccount_role_collection_assignment" "hana_cloud_admin_group" {
   subaccount_id        = btp_subaccount.trial.id
   role_collection_name = "SAP HANA Cloud Administrator"
