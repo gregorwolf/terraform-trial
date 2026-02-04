@@ -3,11 +3,11 @@ resource "btp_subaccount" "trial" {
   subdomain = var.subdomain
   region    = var.region
 }
-# Uncomment for the import
-import {
-  id = "daa08ebd-f64e-4901-bb67-6f41a9c01cdb"
-  to = btp_subaccount.trial
-}
+## Uncomment for the import
+#import {
+#  id = "daa08ebd-f64e-4901-bb67-6f41a9c01cdb"
+#  to = btp_subaccount.trial
+#}
 
 resource "btp_subaccount_entitlement" "alert_notification_service" {
   subaccount_id = btp_subaccount.trial.id
