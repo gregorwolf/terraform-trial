@@ -4,15 +4,22 @@ Right now this terraform setup creates:
 
 - Import the subaccount named 'trial'
 - Add entitlements for
+  - Audit Log Viewer Service
   - Alert Notification
   - SAP Build Work Zone, standard edition
-  - SAP Cloud Identity Services
+  - Cloud Identity Services
   - HANA Cloud tools
   - HANA Cloud
-- Create an instance of
-  - SAP Build Work Zone, standard edition
-  - SAP Cloud Identity Services
+  - SAP Build Process Automation
+  - Integration Suite
+- Create subscriptions for
+  - Audit Log Viewer Service
   - HANA Cloud tools
+  - Integration Suite
+  - SAP Build Process Automation
+  - Cloud Identity Services
+  - SAP Build Work Zone, standard edition
+- Create an instance of
   - HANA Cloud
 - Add trust to the SAP Cloud Identity Services instance
 - Creates a subaccount sub01 that can be used for multitenant applications
