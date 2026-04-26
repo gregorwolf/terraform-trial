@@ -12,6 +12,7 @@ Right now this terraform setup creates:
   - HANA Cloud
   - SAP Build Process Automation
   - Integration Suite
+  - Application Frontend Service
 - Create subscriptions for
   - Audit Log Viewer Service
   - HANA Cloud tools
@@ -19,6 +20,7 @@ Right now this terraform setup creates:
   - SAP Build Process Automation
   - Cloud Identity Services
   - SAP Build Work Zone, standard edition
+  - Application Frontend Service
 - Create an instance of
   - HANA Cloud
 - Add trust to the SAP Cloud Identity Services instance
