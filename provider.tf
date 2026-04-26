@@ -2,15 +2,15 @@ terraform {
   required_providers {
     btp = {
       source  = "SAP/btp"
-      version = "1.20.1"
+      version = "1.21.3"
     }
     cloudfoundry = {
       source  = "cloudfoundry/cloudfoundry"
-      version = "1.13.0"
+      version = "1.14.0"
     }
     cis = {
       source  = "SAP/sap-cloud-identity-services"
-      version = "0.4.0-beta1"
+      version = "0.5.0-beta1"
     }
   }
 }
