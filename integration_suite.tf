@@ -1,6 +1,6 @@
 resource "btp_subaccount_subscription" "integration_suite" {
   subaccount_id = btp_subaccount.trial.id
-  app_name      = "it-cpitrial05-prov"
+  app_name      = "it-cpitrial06-prov"
   plan_name     = "trial"
   depends_on    = [btp_subaccount_trust_configuration.customized]
   # btp_subaccount_entitlement.integration_suite, 
