@@ -8,9 +8,9 @@ terraform {
       source  = "cloudfoundry/cloudfoundry"
       version = "1.14.0"
     }
-    cis = {
+    sci = {
       source  = "SAP/sap-cloud-identity-services"
-      version = "0.5.0-beta1"
+      version = "0.6.0-beta1"
     }
   }
 }
@@ -25,6 +25,8 @@ provider "cloudfoundry" {
   password = var.cf_password
 }
 
-provider "cis" {
-  tenant_url = "${var.cistenant_url}"
+provider "sci" {
+  tenant_url = var.cistenant_url
+  username   = var.ias_client_id
+  password   = var.ias_client_secret
 }

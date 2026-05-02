@@ -66,3 +66,20 @@ variable "admins" {
     error_message = "Please enter a valid email address for the admins."
   }
 }
+
+variable "cistenant_url" {
+  type        = string
+  description = "Cloud Identity Services tenant URL"
+  default     = "https://attzduhgt.trial-accounts.ondemand.com"
+}
+
+variable "ias_client_id" {
+  type        = string
+  description = "Cloud Identity Services client ID"
+}
+
+variable "ias_client_secret" {
+  type        = string
+  description = "Cloud Identity Services client secret"
+  sensitive   = true
+}
