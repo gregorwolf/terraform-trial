@@ -83,3 +83,8 @@ variable "ias_client_secret" {
   description = "Cloud Identity Services client secret"
   sensitive   = true
 }
+
+variable "ias_user_id" {
+  type        = string
+  description = "Cloud Identity Services User ID"
+}
